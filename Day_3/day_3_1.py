@@ -1,5 +1,1 @@
-import sys
-def solve():
-    pass
-if __name__ == '__main__':
-	solve()
+print(sum([ord(_)-96 if _.islower() else ord(_)-38 for _ in [list(set(_[:len(_)//2]).intersection(set(_[len(_)//2:])))[0] for _ in [_.strip() for _ in open("input.txt", "r").readlines()]]]))
