@@ -16,13 +16,15 @@ def solve(lines: list[str]):
 
 def compare(leftList:list[any]|int, rightList:list[any]|int)->bool:
     '''Compares two values, returns true if they're in the correct order and false if not'''
-    print(f"Compare {leftList} vs {rightList}")
     if leftList == [] and rightList == []:
         return None
     elif leftList == []:
+        print(f"Left side ran out of items. Inputs are in the right order.")
         return True
     elif rightList == []:
+        print(f"Right side ran out of items. Inputs are NOT in the right order.")
         return False
+    print(f"Compare {leftList} vs {rightList}")
     left = leftList.pop(0)
     right = rightList.pop(0)
     print(f"  Comparing {left} vs {right}")
@@ -46,11 +48,11 @@ def compare(leftList:list[any]|int, rightList:list[any]|int)->bool:
     # Okay so now we have two lists.
     print(f"Got two lists: {left} vs {right}")
     # Is the left side empty?
-    if left == []:
-        return True
-    # What about the right side?
-    if right == []:
-        return False
+    # if left == []:
+    #     return True
+    # # What about the right side?
+    # if right == []:
+    #     return False
     # They've both got items in them still. Keep it rolling.
     result: bool|None = compare(left, right)
     # print(f"result is {result}.")
@@ -69,8 +71,9 @@ def compare(leftList:list[any]|int, rightList:list[any]|int)->bool:
 
 if __name__ == '__main__':
     lines: list[str] = [line.strip()
-                        for line in open("input.txt", "r").readlines()]
+                        for line in open("test.txt", "r").readlines()]
     print(solve(lines))
 
     # Bad guesses:
+    # 4747 too low
     # 4768 too low
